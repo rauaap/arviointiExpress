@@ -5,9 +5,9 @@ const helmet = require('helmet');
 const cors = require('cors');
 const logger = require('morgan');
 
-const bookRouter = require('./routes/book')
-const borrowerRouter = require('./routes/borrower')
-const userRouter = require('./routes/user')
+const opintojaksoRouter = require('./routes/opintojakso')
+const arviointiRouter = require('./routes/arviointi')
+const opiskelijaRouter = require('./routes/opiskelija')
 
 const auth = require('./auth')
 const database = require('./database')
@@ -22,8 +22,8 @@ app.use(cors());
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
-app.use('/borrower', borrowerRouter)
-app.use('/book', bookRouter)
-app.use('/user', userRouter)
+app.use('/arviointi', arviointiRouter)
+app.use('/opintojakso', opintojaksoRouter)
+app.use('/opiskelija', opiskelijaRouter)
 
 module.exports = app;
