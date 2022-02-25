@@ -10,7 +10,7 @@ const book = {
   add: function(arviointi, callback) {
     return db.query(
       'insert into Arviointi (Paivamaara,Arvosana,idOpiskelija,idOpintojakso) values(?,?,?,?)',
-      [arviointi.paivamaara, arviointi.arvosana, arviointi.idOpiskelija, arviointi,idOpintojakso],
+      [arviointi.paivamaara, arviointi.arvosana, arviointi.idOpiskelija, arviointi.idOpintojakso],
       callback
     );
   },
@@ -20,7 +20,7 @@ const book = {
   update: function(id, arviointi, callback) {
     return db.query(
       'update Arviointi set Paivamaara=?,Arvosana=?,idOpiskelija=?,idOpintojakso=? where idArviointi=?',
-      [arviointi.paivamaara, arviointi.arvosana, arviointi.idOpiskelija, arviointi,idOpintojakso, id],
+      [arviointi.paivamaara, arviointi.arvosana, arviointi.idOpiskelija, arviointi.idOpintojakso, id],
       callback
     );
   }
