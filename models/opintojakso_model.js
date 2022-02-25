@@ -1,0 +1,29 @@
+const db = require('../database');
+
+const opintojakso = {
+  getById: function(id, callback) {
+    return db.query('select * from Opintojakso where idOpintojakso=?', [id], callback);
+  },
+  getAll: function(callback) {
+    return db.query('select * from Opintojakso', callback);
+  },
+  add: function(opintojakso, callback) {
+    return db.query(
+      'insert into Opintojakso (Koodi, Laajuus, Nimi) values(?,?,?)',
+      [opintojakso.koodi, opintojakso.laajuus, opintojakso.nimi],
+      callback
+    );
+  },
+  delete: function(id, callback) {
+    return db.query('delete from Opintojakso where idOpintojakso=?', [id], callback);
+  },
+  update: function(id, opiskelija, callback) {
+    return db.query(
+      'update Opintojakso set Koodi=?,Laajuus=?,Nimi=? where idOpintojakso=?',
+      [opintojakso.koodi, opintojakso.laajuus, opintojakso.nimi, id],
+      callback
+    );
+  }
+};
+
+module.exports = opintojakso
