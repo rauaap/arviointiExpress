@@ -17,7 +17,7 @@ const opintojakso = {
   delete: function(id, callback) {
     return db.query('delete from Opintojakso where idOpintojakso=?', [id], callback);
   },
-  update: function(id, opiskelija, callback) {
+  update: function(id, opintojakso, callback) {
     return db.query(
       'update Opintojakso set Koodi=?,Laajuus=?,Nimi=? where idOpintojakso=?',
       [opintojakso.koodi, opintojakso.laajuus, opintojakso.nimi, id],
